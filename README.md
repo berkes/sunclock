@@ -80,7 +80,7 @@ TODO
   - [x] Verify dev server serves on localhost with hot reload
   - [x] Update README Quickstart/Tools to reflect esbuild + browser-sync
 - [x] Initial SVG drawing a simple clock
-- [ ] Add date
+- [x] Add date
 - [ ] Add a sun-dial visual
 - [ ] Calculate sunup, sundown, etc based on lat/lon location
 - [ ] Allow setting of location manually

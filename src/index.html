@@ -1,32 +1,56 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sun Clock</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <main>
-      <svg id="clock" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Analog clock">
-        <!-- Clock face -->
-        <circle class="clock-face" cx="100" cy="100" r="97"/>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Sun Clock</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <main>
+            <form id="debug-form">
+                <label for="debug-toggle">Debug</label>
+                <input type="checkbox" id="debug-toggle" /><br/>
+                <input type="datetime-local" id="debug-input" />
+            </form>
 
-        <!-- Minute tick marks: 60 dashes, outer edge at r=93 -->
-        <circle class="ticks-minor" cx="100" cy="100" r="90"/>
+            <svg
+                id="clock"
+                viewBox="0 0 200 200"
+                xmlns="http://www.w3.org/2000/svg"
+                role="img"
+                aria-label="Analog clock"
+            >
+                <!-- Clock face -->
+                <circle class="clock-face" cx="100" cy="100" r="97" />
 
-        <!-- Hour tick marks: 12 dashes, outer edge at r=93, drawn on top -->
-        <circle class="ticks-major" cx="100" cy="100" r="87"/>
+                <text
+                    id="date"
+                    x="100"
+                    y="80"
+                    text-anchor="middle"
+                    dominant-baseline="middle"
+                ></text>
 
-        <!-- Clock hands — transform rotated by main.js each second -->
-        <line id="hand-hour"   x1="100" y1="100" x2="100" y2="47"/>
-        <line id="hand-minute" x1="100" y1="100" x2="100" y2="22"/>
-        <line id="hand-second" x1="100" y1="115" x2="100" y2="15"/>
-        <circle class="center" cx="100" cy="100" r="5" />
+                <!-- Minute tick marks: 60 dashes, outer edge at r=93 -->
+                <circle class="ticks-minor" cx="100" cy="100" r="90" />
 
-      </svg>
-    </main>
-    <script src="main.js"></script>
-    <script>if (!window.IS_PRODUCTION) new EventSource('/esbuild').addEventListener('change', () => location.reload())</script>
-  </body>
+                <!-- Hour tick marks: 12 dashes, outer edge at r=93, drawn on top -->
+                <circle class="ticks-major" cx="100" cy="100" r="87" />
+
+                <!-- Clock hands — transform rotated by main.js each second -->
+                <line id="hand-hour" x1="100" y1="100" x2="100" y2="47" />
+                <line id="hand-minute" x1="100" y1="100" x2="100" y2="22" />
+                <line id="hand-second" x1="100" y1="115" x2="100" y2="15" />
+                <circle class="center" cx="100" cy="100" r="5" />
+            </svg>
+        </main>
+        <script src="main.js"></script>
+        <script>
+            if (!window.IS_PRODUCTION)
+                new EventSource("/esbuild").addEventListener("change", () =>
+                    location.reload(),
+                );
+        </script>
+    </body>
 </html>

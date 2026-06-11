@@ -18,11 +18,24 @@ body {
   height: min(80vw, 80vh, 400px);
 }
 
+#debug-form {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+
 /* ── Clock face ── */
 
 .clock-face {
   fill: #e6edf3;
 }
+
+#date {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
 
 /* ── Tick marks ──
    stroke-width controls radial length; stroke-dasharray controls
@@ -56,6 +69,7 @@ body {
     stroke: #111;
     stroke-width: 1.5;
 }
+
 /* ── Clock hands ── */
 
 #hand-hour,
