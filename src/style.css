@@ -36,6 +36,9 @@ body {
     font-size: 12px;
 }
 
+#sun {
+    stroke: none;
+}
 
 /* ── Tick marks ──
    stroke-width controls radial length; stroke-dasharray controls

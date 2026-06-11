@@ -43,6 +43,13 @@ function setHandAngle(id: string, degrees: number): void {
   el.setAttribute("transform", `rotate(${degrees}, 100, 100)`);
 }
 
+function sunPos(date: Date): number {
+  const h = date.getHours();
+  const m = date.getMinutes();
+  // Convert to degrees, 24 hours = 360 degrees. Add 180 to ensure top is mid noon
+  return h * 15 + m * 0.25 + 180;
+}
+
 function tick(): void {
   const now = debugEnabled ? new Date(debugInputValue) : new Date();
   const h = now.getHours() % 12;
@@ -55,6 +62,8 @@ function tick(): void {
   setHandAngle("hand-hour", h * 30 + m * 0.5);
   setHandAngle("hand-minute", m * 6 + s * 0.1);
   setHandAngle("hand-second", s * 6);
+
+  setHandAngle("sun", sunPos(now));
 
   setText("date", `${weekday} ${day}`);
 }
