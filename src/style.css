@@ -13,27 +13,67 @@ body {
   font-family: system-ui, sans-serif;
 }
 
-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
-}
-
-h1 {
-  margin: 0;
-  font-size: 1.5rem;
-  font-weight: 400;
-  letter-spacing: 0.1em;
-}
-
 #clock {
   width: min(80vw, 80vh, 400px);
   height: min(80vw, 80vh, 400px);
 }
 
+/* ── Clock face ── */
+
 .clock-face {
-  fill: #161b22;
-  stroke: #30363d;
-  stroke-width: 2;
+  fill: white;
+}
+
+/* ── Tick marks ──
+   stroke-width controls radial length; stroke-dasharray controls
+   the circumferential thickness (dash) and the gap between marks.
+
+   Minor (60 marks): r=90, extends r=87–93, period = 2π×90/60 ≈ 9.425
+   Major (12 marks): r=87, extends r=81–93, period = 2π×87/12 ≈ 45.553
+   Both circles are rotated -90° so the first tick sits at 12 o'clock.
+*/
+
+.ticks-minor,
+.ticks-major {
+  fill: none;
+  stroke: #111;
+}
+
+.ticks-minor {
+  stroke-width: 6;
+  stroke-dasharray: 2 7.425;
+}
+
+.ticks-major {
+  stroke-width: 12;
+  stroke-dasharray: 3 42.553;
+}
+
+/* ── Hour labels ── */
+
+.clock-label {
+  fill: #111;
+  font-family: system-ui, Arial, sans-serif;
+  font-size: 14px;
+}
+
+/* ── Clock hands ── */
+
+#hand-hour,
+#hand-minute,
+#hand-second {
+  stroke: #111;
+  stroke-linecap: square;
+}
+
+#hand-hour {
+  stroke-width: 6;
+}
+
+#hand-minute {
+  stroke-width: 4;
+}
+
+#hand-second {
+  stroke-width: 1.5;
 }

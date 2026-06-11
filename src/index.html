@@ -8,16 +8,39 @@
   </head>
   <body>
     <main>
-      <h1>Sun Clock - updated</h1>
-      <svg id="clock" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="100" cy="100" r="90" class="clock-face" />
-        <g id="clock-hands">
-            <g id="hour-hand">
-                <line x1="100" y1="100" x2="100" y2="100" class="clock-hand" />
-            </g>
-            <g id="minute-hand"></g>
-            <g id="second-hand"></g>
-        </g>
+      <svg id="clock" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Analog clock">
+
+        <!-- Clock face -->
+        <circle class="clock-face" cx="100" cy="100" r="97"/>
+
+        <!-- Minute tick marks: 60 dashes, outer edge at r=93 -->
+        <circle class="ticks-minor" cx="100" cy="100" r="90" transform="rotate(-90, 100, 100)"/>
+
+        <!-- Hour tick marks: 12 dashes, outer edge at r=93, drawn on top -->
+        <circle class="ticks-major" cx="100" cy="100" r="87" transform="rotate(-90, 100, 100)"/>
+
+        <!-- Hour labels (r=65 from centre) -->
+        <text class="clock-label" x="100" y=" 35" text-anchor="middle" dominant-baseline="central">12</text>
+        <text class="clock-label" x="133" y=" 44" text-anchor="middle" dominant-baseline="central">1</text>
+        <text class="clock-label" x="156" y=" 68" text-anchor="middle" dominant-baseline="central">2</text>
+        <text class="clock-label" x="165" y="100" text-anchor="middle" dominant-baseline="central">3</text>
+        <text class="clock-label" x="156" y="133" text-anchor="middle" dominant-baseline="central">4</text>
+        <text class="clock-label" x="133" y="156" text-anchor="middle" dominant-baseline="central">5</text>
+        <text class="clock-label" x="100" y="165" text-anchor="middle" dominant-baseline="central">6</text>
+        <text class="clock-label" x=" 68" y="156" text-anchor="middle" dominant-baseline="central">7</text>
+        <text class="clock-label" x=" 44" y="133" text-anchor="middle" dominant-baseline="central">8</text>
+        <text class="clock-label" x=" 35" y="100" text-anchor="middle" dominant-baseline="central">9</text>
+        <text class="clock-label" x=" 44" y=" 68" text-anchor="middle" dominant-baseline="central">10</text>
+        <text class="clock-label" x=" 68" y=" 44" text-anchor="middle" dominant-baseline="central">11</text>
+
+        <!-- Clock hands — transform rotated by main.js each second -->
+        <line id="hand-hour"   x1="100" y1="100" x2="100" y2="47"/>
+        <line id="hand-minute" x1="100" y1="100" x2="100" y2="22"/>
+        <line id="hand-second" x1="100" y1="115" x2="100" y2="15"/>
+
+        <!-- Centre cap sits on top of all hands -->
+        <circle cx="100" cy="100" r="3" fill="#111"/>
+
       </svg>
     </main>
     <script src="main.js"></script>
