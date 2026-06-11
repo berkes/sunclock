@@ -8,11 +8,19 @@
   </head>
   <body>
     <main>
-      <h1>Sun Clock</h1>
+      <h1>Sun Clock - updated</h1>
       <svg id="clock" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
         <circle cx="100" cy="100" r="90" class="clock-face" />
+        <g id="clock-hands">
+            <g id="hour-hand">
+                <line x1="100" y1="100" x2="100" y2="100" class="clock-hand" />
+            </g>
+            <g id="minute-hand"></g>
+            <g id="second-hand"></g>
+        </g>
       </svg>
     </main>
     <script src="main.js"></script>
+    <script>if (!window.IS_PRODUCTION) new EventSource('/esbuild').addEventListener('change', () => location.reload())</script>
   </body>
 </html>
