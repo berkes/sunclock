@@ -1,0 +1,12 @@
+{
+  "name": "sunclock",
+  "version": "0.1.0",
+  "description": "A clockface visualising the sunup, sundown, twilight times.",
+  "private": true,
+  "type": "module",
+  "devDependencies": {
+    "browser-sync": "^3.0.4",
+    "esbuild": "^0.28.0",
+    "typescript": "^6.0.3"
+  }
+}
