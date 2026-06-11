@@ -79,7 +79,7 @@ TODO
   - [x] Add `just` recipes: `install`, `build`, `watch`, `dev` (serve + reload)
   - [x] Verify dev server serves on localhost with hot reload
   - [x] Update README Quickstart/Tools to reflect esbuild + browser-sync
-- [ ] Initial SVG drawing a simple clock
+- [x] Initial SVG drawing a simple clock
 - [ ] Add date
 - [ ] Add a sun-dial visual
 - [ ] Calculate sunup, sundown, etc based on lat/lon location

@@ -21,7 +21,7 @@ body {
 /* ── Clock face ── */
 
 .clock-face {
-  fill: white;
+  fill: #e6edf3;
 }
 
 /* ── Tick marks ──
@@ -30,8 +30,8 @@ body {
 
    Minor (60 marks): r=90, extends r=87–93, period = 2π×90/60 ≈ 9.425
    Major (12 marks): r=87, extends r=81–93, period = 2π×87/12 ≈ 45.553
-   Both circles are rotated -90° so the first tick sits at 12 o'clock.
-*/
+   We need a minor offset to let the marks align exactly
+   */
 
 .ticks-minor,
 .ticks-major {
@@ -42,21 +42,20 @@ body {
 .ticks-minor {
   stroke-width: 6;
   stroke-dasharray: 2 7.425;
+  stroke-dashoffset: 1.425;
 }
 
 .ticks-major {
   stroke-width: 12;
   stroke-dasharray: 3 42.553;
+  stroke-dashoffset: 1.553;
 }
 
-/* ── Hour labels ── */
-
-.clock-label {
-  fill: #111;
-  font-family: system-ui, Arial, sans-serif;
-  font-size: 14px;
+.center {
+    fill: #e6edf3;
+    stroke: #111;
+    stroke-width: 1.5;
 }
-
 /* ── Clock hands ── */
 
 #hand-hour,
@@ -64,6 +63,7 @@ body {
 #hand-second {
   stroke: #111;
   stroke-linecap: square;
+  box-shadow: ;
 }
 
 #hand-hour {
